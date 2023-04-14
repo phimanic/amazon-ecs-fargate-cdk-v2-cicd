@@ -16,6 +16,7 @@ export class EcsCdkStack extends cdk.Stack {
     const githubUserName = new cdk.CfnParameter(this, "githubUserName", {
         type: "String",
         description: "Github username for source code repository"
+        default: "phimanic"
     })
 
     const githubRepository = new cdk.CfnParameter(this, "githubRespository", {
@@ -196,7 +197,7 @@ export class EcsCdkStack extends cdk.Stack {
       owner: 'phimanic',
       repo: 'amazon-ecs-fargate-cdk-v2-cicd',
       branch: 'main',
-      oauthToken: cdk.SecretValue.secretsManager("/my/github/token3"),
+      oauthToken: cdk.SecretValue.secretsManager("/my/github/token"),
       output: sourceOutput
     });
 
